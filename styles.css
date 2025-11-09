@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root {
+    --red: rgb(206, 37, 37);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+::selection {
+    background: var(--red);
+    color: #acded3;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    
+}
+
+body {
+    background: #ddddd2;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+.heading {
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: #59a1bb;
+}
+
+.heading span {
+    color: var(--red);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    border: 0.2rem solid var(--red);
+    color: var(--red);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--red);
+    transition: 0.3s linear;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem 9%;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #666;
+    background-image: url('Images/logoS.jpg');
+    background-repeat: no-repeat;
+    background-size: 80px 50px; /* adjust size */
+    background-position: left center;
+    padding-left: 60px;
+}
+
+header .logo i {
+    padding-right: 0.5rem;
+
+    color: var(--red);
+}
+header .logo img {
+    height: 60px;
+    width: auto;
+}
+
+header .navbar a {
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: #aa1111;
+}
+
+header .navbar a:hover {
+    color: var(--red);
+}
+
+#menu-bar {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: 0.1rem solid #666;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1.5rem;
+    display: none;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+    background: url(../Images/HBS.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center; /* Center content horizontally */
+}
+
+.home .image {
+    display: none; /* This hides the second image */
+}
+
+.home .content {
+    flex: 1 1 100%;
+    
+    padding-top: 10rem;
+}
+
+.home .content p {
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 2rem;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(-3rem);
+    }
+}
+
+.home .content p {
+    font-size: 3rem;
+    color: #333;
+    
+}
+
+/* Foods Section */
+.Foods .box-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr); 
+    grid-auto-rows:auto;/* auto height for each row */
+    gap: 1.5rem; /* smaller spacing */
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 5%;
+}
+.Foods .box-container .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.Foods .box-container .box {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.Foods .box-container .box img {
+    width: 100%;
+    height: 160px; /* small and neat */
+    object-fit: contain; /* keeps full image visible */
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+    
+.Foods .box-container .box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    padding-top: 0.5rem 0;
+}
+.Foods .box-container .box .price {
+    color: #ff6f61;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
+}
+
+
+.Foods .box-container .box .stars i {
+    color: gold;
+    font-size: 1.2rem;
+}
+/* Drinks Section */
+.Drinks .box-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr); 
+    grid-auto-rows:auto;/* auto height for each row */
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 5%;
+}
+
+.Drinks .box-container .box {
+    padding: 1rem;
+    background: #fff;
+    border:1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Drinks .box-container .box img {
+    height: 160px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.Drinks .box-container .box .price {
+    color: #ff6f61;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
+    
+}
+
+.Drinks .box-container .box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    padding-top: 0.5rem 0;
+}
+
+.Drinks .box-container .box .stars i {
+    color: gold;
+    font-size: 1.2rem;
+    
+}
+/* Steps Section */
+.steps {
+    padding: 2rem 9%;
+    background: #dcd0c3;
+}
+
+.steps .heading {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #59a1bb;
+    padding-bottom: 2rem;
+}
+
+.steps .heading span {
+    color: var(--red);
+}
+
+.steps .box-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr); 
+    grid-auto-rows:auto;/* auto height for each row */
+    gap: 1.5rem; /* smaller spacing */
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 5%;
+}
+
+.steps .box-container .box {
+    
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.steps .box-container .box img {
+    height: 160px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.steps .box-container .box h3 {
+    font-size: 2rem;
+    color: #333;
+    padding: 0.5rem 0;
+}
+/* Dessert Section */
+.Dessert .box-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr); 
+    grid-auto-rows:auto;/* auto height for each row */
+    gap: 1.5rem; /* smaller spacing */
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 5%;
+}
+
+.Dessert .box-container .box {
+    background: #fff;;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.Dessert .box-container .box img {
+    height: 160px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.Dessert .box-container .box .price {
+    color: #ff3838;
+    font-weight: 600;
+    font-size: 1.3rem;
+    
+}
+
+.Dessert .box-container .box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    padding-top: 0.5rem 0;
+}
+
+.Dessert.box-container .box .stars i {
+    color: gold;
+    font-size: 1.2rem;
+}
+
+/* ContactUs Section */
+.Contact_Us .box-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1.5rem;
+    justify-content: center; 
+}
+
+.Contact_Us .box-container .box {
+    flex: 0 1 30rem; /* Change from 1 to 0 for flex-grow to prevent growing beyond 30rem */
+    padding: 2rem; 
+    background: #fff; 
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); 
+    border: 0.1rem solid rgba(0, 0, 0, 0.3); 
+    border-radius: 0.5rem; 
+    text-align: center; 
+    position: relative;
+}
+
+
+.Contact_Us .box-container .box img {
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block; /* Make image block to center with auto margins */
+    margin: 0 auto; 
+}
+
+.Contact_Us.box-container .box h3 {
+    font-size: 2.5rem;
+    color: #333;
+    padding-top: 1rem;
+}
+
+.Contact_Us.box-container .box .stars i {
+    color: gold;
+    font-size: 1.7rem;
+    padding: 1rem 0;
+}
+.footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer .share {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .share a {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.footer .credit {
+    padding: 2.5rem 1rem;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.footer .credit span {
+    color: var(--red);
+}
+
+/* Scroll Top Button */
+#scroll-top {
+    position: fixed;
+    top: -120%;
+    right: 2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 4rem;
+    background: var(--red);
+    color: #fff;
+    border-radius: 0.5rem;
+    transition: 1s linear;
+    z-index: 1000;
+}
+
+#scroll-top.active {
+    top: calc(100% - 12rem);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+}
+
+/* order Section */
+.order {
+    padding: 2rem 0;
+}
+
+.order h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.order form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.order input, 
+.order textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-size: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order button {
+    background: #508994;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.order button:hover {
+    background: #041d2e;
+}
+
+@media (max-width: 768px) {
+    #menu-bar {
+        display: block;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #f7f7f7;
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
+@media (max-width: 768px) {
+  .Foods .box-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
